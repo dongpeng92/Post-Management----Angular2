@@ -1,0 +1,35 @@
+<form>
+  <div class="list-group">
+    <div>
+      <input type="hidden" name="id" value="{{post._id}}">
+    </div>
+    <div class="list-group-item">
+      <label for="title">Post title</label>
+      <p id="title">{{post.title}}</p>
+    </div>
+    <div class="list-group-item">
+      <label for="description">Post description</label>
+      <p id="description">{{post.description}}</p>
+    </div>
+  </div>
+  <div>
+    <div class="btn-group" role="group" aria-label="...">
+      <button type="button" class="btn btn-primary" (click)="like()" [disabled]="disable"
+              title="{{likes_user}}">Like <span class="badge">{{likes}}</span>
+      </button>
+
+      <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="bottom"
+              title="{{likes_user}}"><span class="glyphicon glyphicon-eye-open"></span></button>
+      <script>
+        $(function () { $("[data-toggle='tooltip']").tooltip(); });
+      </script>
+    </div>
+
+    <button href="#" class="btn btn-primary" (click)="comment()">Comment</button>
+    <button type="button" class="btn btn-danger pull-right" (click)="delete(post._id)">Delete</button>
+    <a href="#" class="btn btn-primary pull-right" [routerLink]="['edit', post._id]">Edit Post</a>
+  </div>
+  <app-comment *ngIf="showComment" [id]="post._id"></app-comment>
+</form>
+
+

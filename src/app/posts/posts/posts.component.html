@@ -1,0 +1,14 @@
+<router-outlet></router-outlet>
+<div class="container">
+  <div class="col-md-1"></div>
+  <div class="col-md-10">
+    <div class="panel panel-primary">
+      <div class="panel-heading">Post List</div>
+      <div class="panel-body" *ngFor="let post of posts; trackBy: trackByFn; let i = index">
+        <app-panel [post]="post" [index]="i" (del_index)="delete($event)"></app-panel>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-1"></div>
+</div>
+

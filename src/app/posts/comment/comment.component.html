@@ -1,0 +1,17 @@
+<div class="panel-body">
+  <div>
+    <ul class="list-group" *ngFor="let comment of comments">
+      <li class="list-group-item">{{comment}}</li>
+    </ul>
+  </div>
+  <form>
+    <div class="input-group">
+      <span class="input-group-addon" id="comment">@</span>
+      <input type="text" class="form-control" placeholder="Add Comment Here" name="comment" [(ngModel)]="add_comment" aria-describedby="comment">
+    </div>
+    <button type="button" class="btn btn-success pull-right" (click)="saveComment()">Save</button>
+  </form>
+</div>
+
+
+
